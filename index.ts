@@ -58,6 +58,8 @@ export default Plugin.define({
         if (!hasSelection) return
 
         const allowed = new Set<string>()
+        // La skill OpenCode reste toujours active, pour tous les dépôts.
+        allowed.add("opencode")
         for (const groupId of repo.groups ?? []) {
           const group = config.groups[groupId]
           if (group?.skills) {
